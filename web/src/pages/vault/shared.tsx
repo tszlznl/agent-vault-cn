@@ -9,6 +9,7 @@ export {
   EmptyState,
   timeAgo,
   timeUntil,
+  formatVaultRole,
 } from "../../components/shared";
 
 export function useVaultParams() {

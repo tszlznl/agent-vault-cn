@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useVaultParams, StatusBadge, LoadingSpinner, ErrorBanner } from "./shared";
+import { useVaultParams, StatusBadge, LoadingSpinner, ErrorBanner, formatVaultRole } from "./shared";
 import DataTable, { type Column } from "../../components/DataTable";
 import Modal from "../../components/Modal";
 import DropdownMenu from "../../components/DropdownMenu";
@@ -92,8 +92,8 @@ export default function AgentsTab() {
       key: "vault_role",
       header: "Role",
       render: (agent) => (
-        <span className="text-sm text-text-muted capitalize">
-          {agent.vault_role || "\u2014"}
+        <span className="text-sm text-text-muted">
+          {agent.vault_role ? formatVaultRole(agent.vault_role) : "\u2014"}
         </span>
       ),
     },

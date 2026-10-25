@@ -4,6 +4,7 @@ import {
   LoadingSpinner,
   ErrorBanner,
   StatusBadge,
+  formatVaultRole,
 } from "./shared";
 import DataTable, { type Column } from "../../components/DataTable";
 import Modal from "../../components/Modal";
@@ -132,7 +133,7 @@ export default function UsersTab() {
       key: "role",
       header: "Role",
       render: (u) => (
-        <span className="text-sm text-text-muted capitalize">{u.role}</span>
+        <span className="text-sm text-text-muted">{formatVaultRole(u.role)}</span>
       ),
     },
     {

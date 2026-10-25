@@ -317,7 +317,7 @@ export default function ServicesTab() {
           >
             <span className="flex items-center gap-2 text-sm font-medium text-warning">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5"/><path d="M8 5v3M8 10h.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
-              {discoveredTotal} {discoveredTotal === 1 ? "host" : "hosts"} detected in recent traffic
+              最近流量中检测到 {discoveredTotal} 个主机
             </span>
             <svg
               className={`w-4 h-4 text-text-muted transition-transform ${discoveredCollapsed ? "" : "rotate-180"}`}
@@ -333,7 +333,7 @@ export default function ServicesTab() {
                   <div>
                     <div className="font-mono text-sm text-text">{dh.host}</div>
                     <div className="text-xs text-text-muted mt-0.5">
-                      {dh.request_count} {dh.request_count === 1 ? "request" : "requests"} &middot; {timeAgo(dh.last_seen)}
+                      {dh.request_count} 个请求 &middot; {timeAgo(dh.last_seen)}
                     </div>
                   </div>
                   {isAdmin && (

@@ -450,7 +450,7 @@ export default function InstanceSettingsTab() {
             </p>
 
             <div className="flex items-center gap-3 mb-4">
-              <label className="text-sm text-text-muted" htmlFor="rl-profile">Profile</label>
+              <label className="text-sm text-text-muted" htmlFor="rl-profile">预设配置</label>
               <select
                 id="rl-profile"
                 className="h-9 px-3 rounded-lg border border-border bg-bg text-sm text-text disabled:opacity-60"

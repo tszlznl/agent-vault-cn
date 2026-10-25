@@ -1,11 +1,13 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import zhCN from "./plugins/zh-cn.mjs";
 
 const API_TARGET = process.env.VITE_API_URL ?? "http://localhost:14321";
 
 export default defineConfig({
   plugins: [
+    zhCN(),
     react(),
     tailwindcss(),
   ],

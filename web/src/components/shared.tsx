@@ -9,6 +9,16 @@ export function StatusBadge({ status }: { status: string }) {
     enabled: "bg-success-bg text-success border-success/20",
     disabled: "bg-danger-bg text-danger border-danger/20",
   };
+  const labels: Record<string, string> = {
+    pending: "待处理",
+    applied: "已应用",
+    rejected: "已拒绝",
+    expired: "已过期",
+    active: "启用",
+    revoked: "已撤销",
+    enabled: "已启用",
+    disabled: "已禁用",
+  };
 
   return (
     <span
@@ -16,7 +26,7 @@ export function StatusBadge({ status }: { status: string }) {
         styles[status] || "bg-bg text-text-muted border-border"
       }`}
     >
-      {status.charAt(0).toUpperCase() + status.slice(1)}
+      {labels[status] ?? status}
     </span>
   );
 }
@@ -100,6 +110,15 @@ export function formatInstanceRole(role: string): string {
   if (role === "no-access") return "No Access";
   if (role === "owner") return "Owner";
   if (role === "member") return "Member";
+  return role;
+}
+
+// Vault-scoped roles are rendered as raw API values by some tables; map them
+// so the Chinese UI does not leak English role names.
+export function formatVaultRole(role: string): string {
+  if (role === "proxy") return "代理";
+  if (role === "member") return "成员";
+  if (role === "admin") return "管理员";
   return role;
 }
 
