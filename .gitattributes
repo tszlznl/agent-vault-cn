@@ -1,0 +1,2 @@
+# Keep text files at LF so Linux containers get valid shebangs and scripts.
+* text=auto eol=lf

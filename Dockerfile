@@ -36,7 +36,9 @@ RUN apk add --no-cache --upgrade ca-certificates ca-certificates-bundle \
 
 COPY --from=builder /agent-vault /usr/local/bin/agent-vault
 COPY scripts/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+# Normalize CRLF from Windows checkouts; a CRLF shebang makes the entrypoint unrunnable.
+RUN sed -i 's/\r$//' /usr/local/bin/docker-entrypoint.sh \
+    && chmod +x /usr/local/bin/docker-entrypoint.sh
 
 ENV HOME=/data
 VOLUME /data
